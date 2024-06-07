@@ -9,7 +9,7 @@ import time
 #### CONFIG ZONE ####
 usuario = 'jorpeberlin@gmail.com'
 pwd = 'D5l8EHD9Jr$Y'
-dia = 2                                     # Cambiar esto para jugar el día que se dese
+dia = 4                                     # Cambiar esto para jugar el día que se dese
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
@@ -26,7 +26,7 @@ def click(xpath):
 
 
 def write(xpath, text):
-    time.sleep(0.1)
+    time.sleep(3)
     element = driver.find_element(By.XPATH, xpath)
     element.send_keys(text)
 
@@ -48,7 +48,7 @@ for i in range(6, 0, -1):
     # Pincho en la fecha disponible
     print(f'Pincho en la fila{i}')
     click(f'//*[@id="ContentFixedSection_uReservaEspacios_uFechaSeleccionar_datetimepicker"]/div/ul/li[1]/div/div[1]/table/tbody/tr[{i}]/td[{dia}]')
-    time.sleep(0.5)
+    time.sleep(0.2)
 
 # Pincho en continuar
 click('//*[@id="ContentFixedSection_uReservaEspacios_uFechaSeleccionar_btnContinuar"]')
@@ -61,14 +61,16 @@ pista_1 = "19"
 pista_2 = "20"
 pista_3 = "21"
 
-click(f'//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_img1003{pista_1}{hora_1}"]')
+click(f'//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_img1003{pista_3}{"1730"}"]')
      
 # Reservo luz
 alert = driver.switch_to.alert
 
 # Accept the alert
 alert.accept()
-
+time.sleep(1)
+# Reservo la pista
+click('//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_btnReservar"]')
 time.sleep(200)
 
 #//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_img1003 19 1430"]
