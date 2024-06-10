@@ -9,7 +9,7 @@ import time
 #### CONFIG ZONE ####
 usuario = 'jorpeberlin@gmail.com'
 pwd = 'D5l8EHD9Jr$Y'
-dia = 4                                     # Cambiar esto para jugar el día que se dese
+dia = 1                                 # Cambiar esto para jugar el día que se dese
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
@@ -61,7 +61,7 @@ pista_1 = "19"
 pista_2 = "20"
 pista_3 = "21"
 
-click(f'//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_img1003{pista_3}{"1730"}"]')
+click(f'//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_img1003{pista_3}{hora_2}"]')
      
 # Reservo luz
 alert = driver.switch_to.alert
@@ -71,7 +71,9 @@ alert.accept()
 time.sleep(1)
 # Reservo la pista
 click('//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_btnReservar"]')
-time.sleep(200)
+
+# Pago la pista
+click('//*[@id="ContentFixedSection_uCarritoConfirmar_btnConfirmCart"]')
 
 #//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_img1003 19 1430"]
 #//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_img1003 19 1530"]
