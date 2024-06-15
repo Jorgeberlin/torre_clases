@@ -6,10 +6,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 
+#time.sleep(60*17)
 #### CONFIG ZONE ####
 usuario = 'jorpeberlin@gmail.com'
 pwd = 'D5l8EHD9Jr$Y'
-dia = 1                                 # Cambiar esto para jugar el día que se dese
+dia = 3                                 # Cambiar esto para jugar el día que se dese
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
@@ -71,7 +72,7 @@ alert.accept()
 time.sleep(1)
 # Reservo la pista
 click('//*[@id="ContentFixedSection_uReservaEspacios_uReservaCuadrante_btnReservar"]')
-
+time.sleep(10)
 # Pago la pista
 click('//*[@id="ContentFixedSection_uCarritoConfirmar_btnConfirmCart"]')
 
